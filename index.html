@@ -326,7 +326,7 @@ function vEinrichten(){
   if(!env.admin)return leer('Noch nicht eingerichtet','Die Geschäftsführung legt Abteilungen und Mitarbeiter an. Danach kannst du dich hier zuordnen.');
   return '<main><div class="card"><h2>NEXUS HERMES einrichten</h2><p>Es gibt noch keine Stammdaten. Sie werden mit den Standardvorlagen angelegt: vier Rollen (Geschäftsführer, Prokurist, Teamleiter, Mitarbeiter) und sechs Besprechungsarten. Alles lässt sich danach unter „Team“ und „Rollen“ ändern.</p>'+
     '<div style="display:grid;gap:10px"><label>Abteilungen, durch Komma getrennt<input id="e-abt" value="Geschäftsführung, Vertrieb, Büro, Service, Montage, Produktion"></label>'+
-    '<label>Mitarbeiter, einer pro Zeile: Name; Abteilung; Rolle (gf, pk, tl oder ma)<textarea id="e-ma" rows="8" placeholder="Erika Muster; Geschäftsführung; gf&#10;Max Beispiel; Vertrieb; tl&#10;Paula Probe; Service; ma"></textarea></label>'+
+    '<label>Mitarbeiter, einer pro Zeile: Name; Abteilung; Rolle (gf, pk, tl oder ma, Trennung mit ; oder ,)<textarea id="e-ma" rows="8" placeholder="Erika Muster; Geschäftsführung; gf&#10;Max Beispiel; Vertrieb; tl&#10;Paula Probe; Service; ma"></textarea></label>'+
     '<div><button class="b" data-act="einrichten">Einrichten</button></div></div><p class="note">Danach wählt jeder beim ersten Öffnen einmal seinen Namen, du auch.</p></div></main>';
 }
 function vAnmelden(){

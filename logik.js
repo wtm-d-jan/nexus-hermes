@@ -299,12 +299,13 @@
     return { proMa: proMa, doppelt: doppelt };
   }
 
-  // Liste aus dem Einrichten-Feld: „Name; Abteilung; Rolle“ pro Zeile.
-  // Doppelte Namen und leere Zeilen fallen weg, unbekannte Rollen werden „ma“.
+  // Liste aus dem Einrichten-Feld: „Name; Abteilung; Rolle“ pro Zeile, getrennt
+  // mit Semikolon, Komma oder Tab. Doppelte Namen und leere Zeilen fallen weg,
+  // unbekannte Rollen (z. B. ein Kürzel) werden „ma“.
   function mitarbeiterAusText(text, abteilungen) {
     var gesehen = {}, rollen = ['gf', 'pk', 'tl', 'ma'];
     return String(text || '').split(/\r?\n/).map(function (z) {
-      var p = z.split(';').map(function (s) { return s.trim(); });
+      var p = z.split(/[;,\t]/).map(function (s) { return s.trim(); });
       if (!p[0] || gesehen[p[0]]) return null;
       gesehen[p[0]] = 1;
       var r = (p[2] || 'ma').toLowerCase();

@@ -247,3 +247,11 @@ test('Mitarbeiterliste aus dem Einrichten-Feld', () => {
     { name: 'Ohne Abteilung', abt: 'Büro', rolle: 'ma' }
   ]);
 });
+
+test('Mitarbeiterliste auch mit Kommas und Kürzel statt Rolle', () => {
+  const r = L.mitarbeiterAusText('Greta Chef, Geschäftsführung, GC\nMax Monteur,Service,tl', []);
+  assert.deepEqual(r, [
+    { name: 'Greta Chef', abt: 'Geschäftsführung', rolle: 'ma' },
+    { name: 'Max Monteur', abt: 'Service', rolle: 'tl' }
+  ]);
+});
